@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "injector",
+    "common/payload_messagebox",
+    "common/alertable",
+    "common/hook_payload", 
+    "common/inline_hook", "common/inline_hook_test",
+    ]

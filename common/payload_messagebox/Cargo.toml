@@ -1,0 +1,13 @@
+[package]
+name = "payload_messagebox"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+windows = { version = "0.56", features = [
+  "Win32_UI_WindowsAndMessaging",
+  "Win32_Foundation"
+] }
