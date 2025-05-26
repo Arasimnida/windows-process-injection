@@ -3,13 +3,14 @@ mod shellcode_injection;
 mod hook_user;
 
 fn print_usage() {
-    eprintln!("Usage:");
-    eprintln!("  injector.exe dll-createremotethread <pid> <dll_path>");
-    eprintln!("  injector.exe dll-queueuserapc       <pid> <dll_path>");
-    eprintln!("  injector.exe shellcode-createremotethread <pid>");
-    eprintln!("  injector.exe shellcode-ntcreatethreadex   <pid>");
-    eprintln!("  injector.exe setwindowshookex              <hook_dll_path>");
-    eprintln!("  injector.exe inline-hook             <pid> <hook_dll_path>");
+    eprintln!("> Usage:");
+    eprintln!(":\\>   injector.exe dll-createremotethread        <pid> <dll_path>");
+    eprintln!(":\\>   injector.exe dll-queueuserapc              <pid> <dll_path>");
+    eprintln!(":\\>   injector.exe shellcode-createremotethread  <pid>");
+    eprintln!(":\\>   injector.exe shellcode-sirthread           <pid>");
+    eprintln!(":\\>   injector.exe shellcode-ntcreatethreadex    <pid>");
+    eprintln!(":\\>   injector.exe setwindowshookex              <hook_dll_path>");
+    eprintln!(":\\>   injector.exe inline-hook                   <pid> <hook_dll_path>");
 }
 
 fn main() {
@@ -34,6 +35,11 @@ fn main() {
             dll_injection::queueuserapc::inject(pid, &dll)
         }
         "shellcode-createremotethread" => {
+            let pid = args.next().and_then(|s| s.parse().ok())
+                .unwrap_or_else(|| { eprintln!("[!] Missing or invalid PID"); print_usage(); std::process::exit(1) });
+            shellcode_injection::createremotethread::inject(pid)
+        }
+        "shellcode-sirthread" => {
             let pid = args.next().and_then(|s| s.parse().ok())
                 .unwrap_or_else(|| { eprintln!("[!] Missing or invalid PID"); print_usage(); std::process::exit(1) });
             shellcode_injection::createremotethread::inject(pid)
