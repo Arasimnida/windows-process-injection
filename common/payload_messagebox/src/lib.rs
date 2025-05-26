@@ -1,6 +1,13 @@
-use windows::core::PCSTR;
-use windows::Win32::Foundation::HWND;
-use windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK};
+use windows::{
+    core::PCSTR,
+    Win32::{
+        Foundation::HWND,
+        UI::WindowsAndMessaging::{
+            MessageBoxA, 
+            MB_OK
+            }
+    }
+};
 
 /// Called by the loader; `reason == 1` ➜ DLL_PROCESS_ATTACH
 #[unsafe(no_mangle)]
