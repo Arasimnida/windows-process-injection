@@ -1,17 +1,20 @@
 use windows::Win32::{
-        Foundation::{CloseHandle, BOOL},
+        Foundation::{
+            CloseHandle, 
+            BOOL},
         System::{
             Diagnostics::{
                 Debug::{
                     GetThreadContext, 
                     SetThreadContext, 
                     WriteProcessMemory, 
-                    CONTEXT, 
-                    CONTEXT_FLAGS, 
                     CONTEXT_FULL_AMD64, 
                     CONTEXT_FULL_ARM, 
                     CONTEXT_FULL_ARM64, 
-                    CONTEXT_FULL_X86}, 
+                    CONTEXT_FULL_X86,
+                    CONTEXT, 
+                    CONTEXT_FLAGS,
+                }, 
                 ToolHelp::{
                     CreateToolhelp32Snapshot, 
                     Thread32First, 
