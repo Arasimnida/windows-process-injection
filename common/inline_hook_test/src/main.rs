@@ -1,10 +1,25 @@
-use std::{ffi::CString, io::{self, Write}};
-use windows::core::PCSTR;
-use windows::Win32::{
-    Foundation::{HANDLE, INVALID_HANDLE_VALUE},
-    Storage::FileSystem::{
-        CreateFileA, FILE_ATTRIBUTE_NORMAL, FILE_GENERIC_READ, FILE_GENERIC_WRITE,
-        FILE_SHARE_NONE, OPEN_ALWAYS,
+use std::{
+    ffi::CString, 
+    io::{
+        self, 
+        Write
+    }
+};
+use windows::{
+    core::PCSTR,
+    Win32::{
+        Foundation::{
+            HANDLE, 
+            INVALID_HANDLE_VALUE
+        },
+        Storage::FileSystem::{
+            CreateFileA, 
+            FILE_ATTRIBUTE_NORMAL, 
+            FILE_GENERIC_READ, 
+            FILE_GENERIC_WRITE,
+            FILE_SHARE_NONE, 
+            OPEN_ALWAYS,
+        },
     },
 };
 

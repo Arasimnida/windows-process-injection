@@ -1,17 +1,29 @@
+use std::{ptr, ffi::c_void};
 use windows::{
     Win32::{
-        Foundation::{BOOL, CloseHandle, HANDLE, NTSTATUS},
+        Foundation::{
+            CloseHandle,
+            BOOL, 
+            HANDLE, 
+            NTSTATUS
+        },
         System::{
             Diagnostics::Debug::WriteProcessMemory,
-            Memory::{VirtualAllocEx, MEM_COMMIT, MEM_RESERVE, PAGE_EXECUTE_READWRITE},
+            Memory::{
+                VirtualAllocEx, 
+                MEM_COMMIT, 
+                MEM_RESERVE, 
+                PAGE_EXECUTE_READWRITE
+            },
             Threading::{
-                OpenProcess, PROCESS_ALL_ACCESS, WaitForSingleObject,
+                OpenProcess, 
+                WaitForSingleObject,
+                PROCESS_ALL_ACCESS,
             },
         },
     },
 };
-use std::ptr;
-use std::ffi::c_void;
+
 
 #[link(name = "ntdll")]
 unsafe extern "system" {

@@ -1,11 +1,38 @@
 use windows::{
     Win32::{
-        Foundation::{BOOL, CloseHandle},
+        Foundation::{
+            BOOL, 
+            CloseHandle
+        },
         System::{
-            LibraryLoader::{GetModuleHandleA, GetProcAddress},
-            Memory::{VirtualAllocEx, MEM_COMMIT, MEM_RESERVE, PAGE_READWRITE},
-            Threading::{OpenProcess, PROCESS_ALL_ACCESS, QueueUserAPC, OpenThread, THREAD_SET_CONTEXT, THREAD_QUERY_INFORMATION, THREAD_SUSPEND_RESUME},
-            Diagnostics::{Debug::WriteProcessMemory, ToolHelp::{CreateToolhelp32Snapshot, TH32CS_SNAPTHREAD, THREADENTRY32, Thread32First, Thread32Next}},
+            LibraryLoader::{
+                GetModuleHandleA, 
+                GetProcAddress},
+            Memory::{
+                VirtualAllocEx, 
+                MEM_COMMIT, 
+                MEM_RESERVE, 
+                PAGE_READWRITE
+            },
+            Threading::{
+                OpenProcess, 
+                QueueUserAPC, 
+                OpenThread,
+                PROCESS_ALL_ACCESS, 
+                THREAD_SET_CONTEXT, 
+                THREAD_QUERY_INFORMATION, 
+                THREAD_SUSPEND_RESUME
+            },
+            Diagnostics::{
+                Debug::WriteProcessMemory, 
+                ToolHelp::{
+                    CreateToolhelp32Snapshot, 
+                    TH32CS_SNAPTHREAD, 
+                    THREADENTRY32, 
+                    Thread32First, 
+                    Thread32Next
+                }
+            },
         },
     },
     core::PCSTR,

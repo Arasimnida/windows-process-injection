@@ -1,14 +1,20 @@
 use windows::{
     core::PCSTR,
     Win32::{
-        System::LibraryLoader::{LoadLibraryA, GetProcAddress}, 
+        System::LibraryLoader::{
+            LoadLibraryA, 
+            GetProcAddress}, 
         UI::WindowsAndMessaging::{
-            SetWindowsHookExA, UnhookWindowsHookEx, GetMessageA,
-            WH_CBT, HHOOK, MSG, HOOKPROC,
+            SetWindowsHookExA, 
+            UnhookWindowsHookEx, 
+            GetMessageA,
+            WH_CBT, 
+            HHOOK, 
+            MSG, 
+            HOOKPROC,
         },
     },
 };
-
 use std::ffi::CString;
 
 const HOOK_DLL_PATH: &str = "C:\\CBT_hook.dll";
