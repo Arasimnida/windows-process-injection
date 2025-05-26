@@ -1,10 +1,21 @@
 use windows::{
     Win32::{
-        Foundation::{BOOL, CloseHandle},
+        Foundation::{
+            BOOL, 
+            CloseHandle},
         System::{
             Diagnostics::Debug::WriteProcessMemory,
-            Memory::{VirtualAllocEx, MEM_COMMIT, MEM_RESERVE, PAGE_EXECUTE_READWRITE},
-            Threading::{OpenProcess, CreateRemoteThread, PROCESS_ALL_ACCESS, WaitForSingleObject},
+            Memory::{
+                VirtualAllocEx, 
+                MEM_COMMIT, 
+                MEM_RESERVE, 
+                PAGE_EXECUTE_READWRITE
+            },
+            Threading::{
+                OpenProcess, 
+                CreateRemoteThread,
+                WaitForSingleObject, 
+                PROCESS_ALL_ACCESS,},
         },
     },
 };
