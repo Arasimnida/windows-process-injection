@@ -44,6 +44,7 @@ Each technique lives in its own module, so you can plug-and-play the ones you ne
 │           ├── createremotethread.rs               # Shellcode injection using CreateRemoteThread
 │           ├── mod.rs
 │           └── ntcreatethreadex.rs                 # Shellcode injection using NtCreateThreadEx
+│           └── sirthread.rs                 # Shellcode injection using Thread hijacking (SIR)
 └── README.md
 ```
 
@@ -58,6 +59,8 @@ Each technique lives in its own module, so you can plug-and-play the ones you ne
 - **In-Process Hooking**
   - Inline-hooking of `CreateFileA`
   - `SetWindowsHookExA` (CBT hook)
+- **Hijacking de thread (Suspend/Inject/Resume)**
+  - For ARM64 processors
 
 ## TO DO
 
@@ -68,6 +71,7 @@ Each technique lives in its own module, so you can plug-and-play the ones you ne
 - **In-Process Hooking**
   - IAT hooking
 - **Hijacking de thread (Suspend/Inject/Resume)**
+  - Architecture: X86, AMD64, ARM
 - **Registery keys**
 - **Reflective DLL & manual mapping**
 - **Process Hollowing**
@@ -122,6 +126,9 @@ COMMANDS:
 
     shellcode-ntcreatethreadex <PID>
         Inject inline shellcode via NtCreateThreadEx
+    
+    shellcode-sirthread <PID>
+        Hijack one thread of the target process using the suspend inject resume (SIR) technique
 
     setwindowshookex <HOOK_DLL_PATH>
         Set a systemwide CBT hook via SetWindowsHookEx
