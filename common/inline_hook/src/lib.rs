@@ -1,9 +1,13 @@
 mod inlinehook;
 
 use windows::Win32::{
-    Foundation::{BOOL, HINSTANCE},
-    System::SystemServices::DLL_PROCESS_ATTACH,
-    System::LibraryLoader::{DisableThreadLibraryCalls},
+    Foundation::{
+        BOOL, 
+        HINSTANCE},
+    System::{
+        SystemServices::DLL_PROCESS_ATTACH,
+        LibraryLoader::DisableThreadLibraryCalls,
+    },
 };
 use std::ffi::c_void;
 

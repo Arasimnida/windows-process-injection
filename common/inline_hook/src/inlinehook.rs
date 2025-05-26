@@ -3,10 +3,25 @@
 use windows::{
     core::PCSTR,
     Win32::{
-        Foundation::{HANDLE, HWND},
-        System::LibraryLoader::{GetModuleHandleA, GetProcAddress},
-        System::Memory::{VirtualProtect, PAGE_EXECUTE_READWRITE, PAGE_PROTECTION_FLAGS},
-        UI::WindowsAndMessaging::{MessageBoxA, MB_OK},
+        Foundation::{
+            HANDLE, 
+            HWND
+        },
+        UI::WindowsAndMessaging::{
+            MessageBoxA, 
+            MB_OK
+        },
+        System::{
+            LibraryLoader::{
+                GetModuleHandleA, 
+                GetProcAddress
+            },
+            Memory::{
+                VirtualProtect, 
+                PAGE_EXECUTE_READWRITE, 
+                PAGE_PROTECTION_FLAGS
+            },
+        },
     },
 };
 use std::{mem, ptr, sync::Mutex};
