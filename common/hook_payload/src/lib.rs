@@ -1,8 +1,18 @@
 use windows::{
     core::PCSTR,
     Win32::{
-        Foundation::{BOOL, HINSTANCE, LPARAM, LRESULT, WPARAM},
-        UI::WindowsAndMessaging::{CallNextHookEx, MessageBoxA, MB_OK},
+        Foundation::{
+            BOOL, 
+            HINSTANCE, 
+            LPARAM, 
+            LRESULT, 
+            WPARAM
+        },
+        UI::WindowsAndMessaging::{
+            CallNextHookEx, 
+            MessageBoxA, 
+            MB_OK
+        },
     },
 };
 
