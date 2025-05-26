@@ -1,16 +1,32 @@
 use windows::{
+    core::PCSTR,
     Win32::{
-        Foundation::{BOOL, CloseHandle},
+        Foundation::{
+            BOOL, 
+            CloseHandle
+        },
         System::{
-            LibraryLoader::{GetModuleHandleA, GetProcAddress},
-            Memory::{VirtualAllocEx, MEM_COMMIT, MEM_RESERVE, PAGE_READWRITE},
-            Threading::{CreateRemoteThread, OpenProcess, PROCESS_ALL_ACCESS, WaitForSingleObject},
+            LibraryLoader::{
+                GetModuleHandleA, 
+                GetProcAddress
+            },
+            Memory::{
+                VirtualAllocEx, 
+                MEM_COMMIT, 
+                MEM_RESERVE, 
+                PAGE_READWRITE
+            },
+            Threading::{
+                CreateRemoteThread, 
+                OpenProcess, 
+                PROCESS_ALL_ACCESS, 
+                WaitForSingleObject
+            },
             Diagnostics::Debug::WriteProcessMemory,
         },
     },
 };
-use windows::core::PCSTR;
-use std::{ffi::CString};
+use std::ffi::CString;
 
 pub fn inject(pid: u32, dll_path: &str) -> windows::core::Result<()> {
     unsafe {
