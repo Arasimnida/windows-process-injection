@@ -13,9 +13,9 @@
 
 ## Features
 
-  - `CreateRemoteThread` && `LoadLibraryA` (DLL and shellcode)
-  - `QueueUserAPC` && `LoadLibraryA` (DLL)
-  - `NtCreateThreadEx` with raw shellcode
+  - `CreateRemoteThread` (DLL and shellcode)
+  - `QueueUserAPC` (DLL)
+  - `NtCreateThreadEx` (shellcode)
   - Inline-hooking of`CreateFileA`
   - CBT hook `SetWindowsHookExA`
   - Thread hijacking (Suspend/Inject/Resume) for ARM64 processors
@@ -85,8 +85,9 @@ OPTIONS:
 
 ## Next steps
 
-- Clean the repo archi
-
+- Clean up the archi
+- Upgrade all features with manual parsing
+- Bypass defender and AV/EDR
 - Process injection methods:
   - `NtCreateThreadEx` && `LoadLibraryA` (DLL)
   - `QueueUserAPC` (shellcode)
